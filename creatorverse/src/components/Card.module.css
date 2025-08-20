@@ -1,5 +1,6 @@
 .cardContainer{
     display:flex;
+    width:100%;
     border-radius: 20px;
     border: 2px solid #ccc;
     align-items: center;
@@ -7,10 +8,13 @@
     background-color: #ccc;
     color:white;
     box-shadow: 0 4px 30px rgba(255,255,0, 0.1);
+    justify-content: center;
+    flex-direction: column;
+    
 }
 
 .cardContainer h1{
     color: rgb(75, 75, 148);
     text-transform: uppercase;
-    
+
 }
