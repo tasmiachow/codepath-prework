@@ -7,7 +7,7 @@ function App() {
       <div>
         Hello World
         <Card 
-        name="Tas"
+        name="Tasmia Chowhury"
         description="funny person"
         />
       </div>
