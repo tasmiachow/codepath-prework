@@ -1,4 +1,4 @@
-
+import ImageCard from "..components/ImageCard.jsx";
 
 
 function ViewCreator(props){

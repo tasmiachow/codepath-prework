@@ -5,7 +5,8 @@ import AddCreator from './pages/AddCreator.jsx';
 import ShowCreators from './pages/ShowCreators.jsx';
 import ViewCreator from './pages/ViewCreator.jsx';
 import EditCreator from './pages/EditCreator.jsx';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "./client.js";
 
 function App() {
   const [creators, setCreators] = useState([]);
