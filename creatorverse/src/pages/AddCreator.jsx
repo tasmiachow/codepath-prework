@@ -1,7 +1,10 @@
 import '@picocss/pico/css/pico.min.css';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function AddCreator() {
+    const navigate = useNavigate();
+
     const [creator, setCreator] = useState({
         name: '',
         profile: '',
@@ -22,6 +25,7 @@ function AddCreator() {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert(JSON.stringify(creator, null, 2));
+        navigate('/');
     };
 
     return (

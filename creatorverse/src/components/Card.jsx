@@ -24,22 +24,36 @@ function Card(props){
         <div className={styles.cardContainer}>
             <h1>{props.name}</h1>
             <div className={styles.socialIcons}>
-                <IconButton>
+                <IconButton component="a" 
+                            href={`https://www.youtube.com/@${props.youtube}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="youtube"
+                >
                     <YouTubeIcon sx={{
                         color: "rgba(255,255,255)", 
                         backgroundColor:"red", 
                         borderRadius:'15%', 
-                        padding:'5%'}}/>
+                        padding:'5%'}} />
                 </IconButton>
-                <IconButton>
+                <IconButton component="a" 
+                            href={`https://x.com/${props.twitter}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="twitter">
                     <TwitterIcon sx={{
                         color: "rgba(255,255,255)", 
                         backgroundColor:"#1DA1F2", 
                         borderRadius:'15%', 
-                        padding:'5%'}}/>
+                        padding:'5%'}} />
                 </IconButton>
-                <IconButton>
-                    <InstagramIcon sx={{color: "rgba(255,255,255)", borderRadius:'15%',  padding:'5%'}} id={styles.instagram}/>
+                <IconButton component="a" 
+                            href={`https://www.instagram.com/${props.instagram}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="instagram">
+                    <InstagramIcon sx={{color: "rgba(255,255,255)", borderRadius:'15%',  padding:'5%'}} id={styles.instagram}
+                    />
                 </IconButton>
 
             </div>
