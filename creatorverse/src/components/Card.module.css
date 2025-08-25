@@ -7,7 +7,6 @@
     border: 2px solid #ccc;
     color: white;
     box-shadow: 0 4px 30px rgba(255, 255, 0, 0.1);
-    background: url("https://bleedingcool.com/wp-content/uploads/2021/06/Pikachu-color-model-publicity-cel-900x900.jpg") center / cover no-repeat;
 }
 
 .cardContainer {
@@ -17,7 +16,7 @@
 }
 
 .cardContainer h1 {
-    color: rgb(75, 75, 148);
+    color: rgb(110, 27, 99);
     text-transform: uppercase;
     font-size: 2rem;
     text-shadow: -1px -1px 0 #000, /* Top-left shadow */

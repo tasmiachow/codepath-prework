@@ -11,9 +11,35 @@ import { supabase } from "./client.js";
 function App() {
   const [creators, setCreators] = useState([]);
 
-  const handleAddCreator = (newCreator) => {
-    setCreators(prevCreators => [...prevCreators, { ...newCreator, id: Date.now() }]);
+  useEffect(() => {
+    const fetchCreators = async () => {
+      const { data, error } = await supabase
+        .from('creators') 
+        .select('*');
+
+      if (error) {
+        console.error('Error fetching creators:', error);
+      } else {
+        setCreators(data);
+      }
+    };
+    fetchCreators();
+  }, []);
+
+  const handleAddCreator = async (newCreator) => {
+    const { data, error } = await supabase
+      .from('creators') 
+      .insert([newCreator])
+      .select();
+
+    if (error) {
+      console.error('Error adding creator:', error);
+    } else if (data) {
+     
+      setCreators(prevCreators => [...prevCreators, data[0]]);
+    }
   };
+
 
   return (
     <Router>

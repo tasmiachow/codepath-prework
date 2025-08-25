@@ -2,12 +2,12 @@ import '@picocss/pico/css/pico.min.css';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function AddCreator() {
+function AddCreator({ onAddCreator }) {
     const navigate = useNavigate();
 
     const [creator, setCreator] = useState({
         name: '',
-        profile: '',
+        imageURL: '',
         description: '',
         youtube: '',
         twitter: '',
@@ -22,9 +22,9 @@ function AddCreator() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        alert(JSON.stringify(creator, null, 2));
+        await onAddCreator(creator);
         navigate('/');
     };
 
@@ -51,9 +51,9 @@ function AddCreator() {
                     <input
                         type="url"
                         id="image"
-                        name="profile" 
+                        name="imageURL" 
                         placeholder="https://..."
-                        value={creator.profile}
+                        value={creator.imageURL}
                         onChange={handleChange}
                         required
                     />

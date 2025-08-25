@@ -5,62 +5,52 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styles from "./Card.module.css";
-import { BrowserRouter as Router, Routes,Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-function Card(props){
-    
-    return(
-         <div className={styles.cardBox}>
-         <div className={styles.toolButtons}>
-                    <IconButton component={Link} to="/view" aria-label="viewcreator">
-                        <InfoOutlinedIcon  sx={{color: "rgba(255,255,255)"}}/>
-                    </IconButton>
-                    <IconButton component={Link} to="/edit" aria-label="editcreator"> 
-                        <EditOutlinedIcon sx={{color: "rgba(255,255,255)"}}/>
-                    </IconButton>
-            
+function Card({ id, name, description, imageURL, youtube, twitter, instagram }) {
+    return (
+        
+        <div 
+            className={styles.cardBox} 
+            style={{ backgroundImage: `url(${imageURL})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat' }}
+        >
+            <div className={styles.toolButtons}>
+                <IconButton component={Link} to={`/view/${id}`} aria-label="view creator">
+                    <InfoOutlinedIcon sx={{ color: "rgba(255,255,255)" }} />
+                </IconButton>
+                <IconButton component={Link} to={`/edit/${id}`} aria-label="edit creator">
+                    <EditOutlinedIcon sx={{ color: "rgba(255,255,255)" }} />
+                </IconButton>
             </div>
-        <div className={styles.cardContainer}>
-            <h1>{props.name}</h1>
-            <div className={styles.socialIcons}>
-                <IconButton component="a" 
-                            href={`https://www.youtube.com/@${props.youtube}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="youtube"
-                >
-                    <YouTubeIcon sx={{
-                        color: "rgba(255,255,255)", 
-                        backgroundColor:"red", 
-                        borderRadius:'15%', 
-                        padding:'5%'}} />
-                </IconButton>
-                <IconButton component="a" 
-                            href={`https://x.com/${props.twitter}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="twitter">
-                    <TwitterIcon sx={{
-                        color: "rgba(255,255,255)", 
-                        backgroundColor:"#1DA1F2", 
-                        borderRadius:'15%', 
-                        padding:'5%'}} />
-                </IconButton>
-                <IconButton component="a" 
-                            href={`https://www.instagram.com/${props.instagram}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="instagram">
-                    <InstagramIcon sx={{color: "rgba(255,255,255)", borderRadius:'15%',  padding:'5%'}} id={styles.instagram}
-                    />
-                </IconButton>
 
+            <div className={styles.cardContainer}>
+                <h1>{name}</h1>
+                <div className={styles.socialIcons}>
+                    
+                    {youtube && (
+                        <IconButton component="a" href={`https://www.youtube.com/@${youtube}`} target="_blank" rel="noopener noreferrer">
+                            <YouTubeIcon sx={{ color: "white", backgroundColor: "red", borderRadius: '15%', padding: '5%' }} />
+                        </IconButton>
+                    )}
+                    {twitter && (
+                        <IconButton component="a" href={`https://x.com/${twitter}`} target="_blank" rel="noopener noreferrer">
+                            <TwitterIcon sx={{ color: "white", backgroundColor: "#1DA1F2", borderRadius: '15%', padding: '5%' }} />
+                        </IconButton>
+                    )}
+                    {instagram && (
+                        <IconButton component="a" href={`https://www.instagram.com/${instagram}`} target="_blank" rel="noopener noreferrer">
+                            <InstagramIcon id={styles.instagram} sx={{ color: "white", borderRadius: '15%', padding: '5%' }} />
+                        </IconButton>
+                    )}
+                </div>
+                <p>{description}</p>
             </div>
-            <p>{props.description}</p>
         </div>
-        </div>
-    )
+    );
 }
 
 export default Card;
