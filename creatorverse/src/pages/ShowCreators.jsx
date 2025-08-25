@@ -1,9 +1,11 @@
 import Card from '../components/Card';
+import styles from './ShowCreators.module.css';
+
 
 function ShowCreators({ creators }) {
   return (
     <div>
-      <div className="grid">
+      <div className={styles.cardGrid}>
         {creators && creators.length > 0 ? (
           creators.map(creator => (
             <Card
