@@ -1,0 +1,40 @@
+.hero {
+  position: relative;
+  height: 40vh;
+  padding: var(--spacing);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+
+.heroContent {
+  position: relative;
+  z-index: 2; 
+}
+
+
+.heroActions {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: var(--spacing);
+}

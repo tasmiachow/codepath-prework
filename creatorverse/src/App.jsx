@@ -1,6 +1,7 @@
 import './App.css';
 import '@picocss/pico/css/pico.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Hero from './components/Hero.jsx';
 import AddCreator from './pages/AddCreator.jsx';
 import ShowCreators from './pages/ShowCreators.jsx';
 import ViewCreator from './pages/ViewCreator.jsx';
@@ -73,7 +74,7 @@ function App() {
       <main className="container">
         <nav>
           <ul>
-            <li><strong>Creatorverse</strong></li>
+            <li><strong> <Link to="/"> Creatorverse </Link></strong></li>
           </ul>
           <ul>
             <li><Link to="/">View All</Link></li>
