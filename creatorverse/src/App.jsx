@@ -40,6 +40,33 @@ function App() {
     }
   };
 
+  const handleUpdateCreator = async (creatorId, updatedCreator) => {
+    const { error } = await supabase
+      .from('creators')
+      .update(updatedCreator)
+      .eq('id', creatorId);
+
+    if (error) {
+      console.error('Error updating creator:', error);
+    } else {
+      setCreators(prevCreators => 
+        prevCreators.map(c => (c.id === creatorId ? { ...c, ...updatedCreator } : c))
+      );
+    }
+  };
+
+  const handleDeleteCreator = async (creatorId) => {
+    const { error } = await supabase
+      .from('creators')
+      .delete()
+      .eq('id', creatorId);
+
+    if (error) {
+      console.error('Error deleting creator:', error);
+    } else {
+      setCreators(prevCreators => prevCreators.filter(c => c.id !== creatorId));
+    }
+  };
 
   return (
     <Router>
@@ -61,7 +88,10 @@ function App() {
           <Route path="/add" element={<AddCreator onAddCreator={handleAddCreator} />} />
 
           <Route path="/view/:creatorId" element={<ViewCreator creators={creators} />} />
-          <Route path="/edit/:creatorId" element={<EditCreator creators={creators} />} />
+          <Route 
+            path="/edit/:creatorId" 
+            element={<EditCreator creators={creators} onUpdateCreator={handleUpdateCreator} onDeleteCreator={handleDeleteCreator} />} 
+          />
         </Routes>
       </main>
     </Router>

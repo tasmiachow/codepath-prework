@@ -13,10 +13,8 @@ function Card({ id, name, description, imageURL, youtube, twitter, instagram }) 
         
         <div 
             className={styles.cardBox} 
-            style={{ backgroundImage: `url(${imageURL})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat' }}
+            style={{ '--card-bg-image': `url(${imageURL})`
+             }}
         >
             <div className={styles.toolButtons}>
                 <IconButton component={Link} to={`/view/${id}`} aria-label="view creator">
