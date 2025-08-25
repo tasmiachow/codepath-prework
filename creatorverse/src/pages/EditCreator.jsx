@@ -53,7 +53,43 @@ function EditCreator({ creators, onUpdateCreator, onDeleteCreator }) {
         
         <fieldset>
           <legend>Social Media</legend>
-          
+          <div className="grid">
+            <label htmlFor="youtube">
+              YouTube
+              <input
+                type="text"
+                id="youtube"
+                name="youtube"
+                placeholder="Handle w/o @"
+                value={creator.youtube || ''}
+                onChange={handleChange}
+              />
+            </label>
+
+            <label htmlFor="twitter">
+              Twitter
+              <input
+                type="text"
+                id="twitter"
+                name="twitter"
+                placeholder="Handle w/o @"
+                value={creator.twitter || ''}
+                onChange={handleChange}
+              />
+            </label>
+
+            <label htmlFor="instagram">
+              Instagram
+              <input
+                type="text"
+                id="instagram"
+                name="instagram"
+                placeholder="Handle w/o @"
+                value={creator.instagram || ''}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
         </fieldset>
         
         <div className="grid">

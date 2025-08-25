@@ -82,7 +82,7 @@ function AddCreator({ onAddCreator }) {
                                 id="youtube"
                                 name="youtube" 
                                 placeholder="Handle w/o @"
-                                value={creator.youtube}
+                                value={creator.youtube || ''}
                                 onChange={handleChange}
                             />
                         </label>
@@ -93,7 +93,7 @@ function AddCreator({ onAddCreator }) {
                                 id="twitter"
                                 name="twitter" 
                                 placeholder="Handle w/o @"
-                                value={creator.twitter}
+                                value={creator.twitter || ''}
                                 onChange={handleChange}
                             />
                         </label>
@@ -104,7 +104,7 @@ function AddCreator({ onAddCreator }) {
                                 id="instagram"
                                 name="instagram" 
                                 placeholder="Handle w/o @"
-                                value={creator.instagram}
+                                value={creator.instagram || ''}
                                 onChange={handleChange}
                             />
                         </label>
